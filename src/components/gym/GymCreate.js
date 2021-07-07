@@ -1,10 +1,12 @@
 import { addGym } from "../../store/actions/gymActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 
 import { useState } from "react";
 
 const GymCreate = () => {
+  const user = useSelector((state) => state.auth.user);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -26,6 +28,8 @@ const GymCreate = () => {
     dispatch(addGym(gym, gSlug));
     history.push("/gyms");
   };
+  if (!user) return <Redirect to="/" />;
+
   //ToDo handle media in backend
   return (
     <form className="container" onSubmit={handleSubmit}>
