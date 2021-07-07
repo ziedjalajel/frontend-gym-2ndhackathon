@@ -25,16 +25,18 @@ const NavBar = () => {
         />
       </Logo>
       <div className="navbar-nav ml-auto">
-        {user && (
-          <>
-            <NavItem className="nav-item" to="/gyms">
-              Gym
-            </NavItem>
-            <NavItem className="nav-item" to="/classes">
-              Classes
-            </NavItem>
-          </>
-        )}
+        <>
+          <NavItem className="nav-item" to="/gyms">
+            Gym
+          </NavItem>
+          <NavItem className="nav-item" to="/classes">
+            Classes
+          </NavItem>
+          <NavItem className="nav-item" to="/classestypes">
+            Classes Types
+          </NavItem>
+        </>
+
         {user ? (
           <NavItem className="nav-item" to="/">
             <h5>Hello {user.username}</h5>

@@ -13,19 +13,20 @@ import TypesDetail from "./types/TypesDetail";
 
 const Routes = () => {
   const gym = useSelector((state) => state.gyms.gyms);
-  const gymClass = useSelector((state) => state.classes.classes);
+  const classes = useSelector((state) => state.classes.classes);
   const classType = useSelector((state) => state.types.types);
   return (
     <Switch>
+      <Route path="/classestypes/:tSlug/classes/new">
+        <ClassCreate />
+      </Route>
       <Route path="/classes/:cSlug">
         <ClassDetail />
       </Route>
       <Route path="/classestypes/:tSlug">
         <TypesDetail />
       </Route>
-      <Route path="/classestypes/:tSlug/classes/new">
-        <ClassCreate />
-      </Route>
+
       <Route path="/newgym">
         <GymCreate />
       </Route>
@@ -36,7 +37,7 @@ const Routes = () => {
         <GymList gym={gym} />
       </Route>
       <Route path="/classes">
-        <ClassList gymClass={gymClass} />
+        <ClassList classes={classes} />
       </Route>
       <Route path="/signin">
         <Signin />

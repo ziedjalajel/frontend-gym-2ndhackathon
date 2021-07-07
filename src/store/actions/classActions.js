@@ -6,11 +6,12 @@ export const ADD_CLASS = "ADD_CLASS";
 export const FETCH_CLASSES = "FETCH_CLASSES";
 
 // ACTIONS
-export const addClass = (newClass, gId) => {
+export const addClass = (newClass, tId) => {
   return async (dispatch) => {
     try {
       const res = await instance.post(
-        `/gyms/${gId}/classes` //we get the bakeryId from the product form as we define it in the product state
+        `/classestypes/${tId}/classes`,
+        newClass //we get the bakeryId from the product form as we define it in the product state
       );
       dispatch({
         type: ADD_CLASS,

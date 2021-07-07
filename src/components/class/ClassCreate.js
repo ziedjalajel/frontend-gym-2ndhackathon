@@ -1,19 +1,21 @@
 import { addClass } from "../../store/actions/classActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 
 import { useState } from "react";
 
 const ClassCreate = () => {
+  const user = useSelector((state) => state.auth.user);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { cSlug, cId } = useParams(); //the bakerySlug came from the app.js when we pass it in the route path like this "/bakeries/:bakerySlug/products/new"
+  const { tId, tSlug } = useParams(); //the bakerySlug came from the app.js when we pass it in the route path like this "/bakeries/:bakerySlug/products/new"
 
   const [clas, setClas] = useState({
     name: "",
     price: "",
-    cId: cId,
+    tId: tId,
   });
 
   const handleChange = (event) =>
@@ -21,9 +23,11 @@ const ClassCreate = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addClass(clas, cSlug));
+    dispatch(addClass(clas, tSlug));
     history.push("/classes");
   };
+  if (!user) return <Redirect to="/" />;
+
   //ToDo handle media in backend
   return (
     <form className="container" onSubmit={handleSubmit}>

@@ -23,6 +23,8 @@ import ClassList from "../class/ClassList";
 
 //   }
 const TypesDetail = () => {
+  const user = useSelector((state) => state.auth.user);
+
   const allClasses = useSelector((state) => state.classes.classes);
   const { tSlug } = useParams();
   const classType = useSelector((state) =>
@@ -43,9 +45,11 @@ const TypesDetail = () => {
     <div className="container">
       <div className="row">
         <h2>{classType.name}</h2>
-        <Link to={`/classestypes/${classType.id}/classes/new`}>
-          <button>Create Class</button>
-        </Link>
+        {user && (
+          <Link to={`/classestypes/${classType.id}/classes/new`}>
+            <button>Create Class</button>
+          </Link>
+        )}
       </div>
       <div className="row">
         <ClassList classes={listOfClasses} />
