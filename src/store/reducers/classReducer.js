@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   classes: [],
-  loading: true,
+  // loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         classes: action.payload,
-        loading: false,
+        // loading: false,
       };
     default:
       return state;

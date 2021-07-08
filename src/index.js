@@ -16,6 +16,7 @@ import { checkForToken } from "./store/actions/authActions";
 import { fetchGym } from "./store/actions/gymActions";
 import { fetchClass } from "./store/actions/classActions";
 import { fetchType } from "./store/actions/typeActions";
+import { fetchSession } from "./store/actions/sessionActions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -27,6 +28,7 @@ store.dispatch(checkForToken());
 store.dispatch(fetchGym());
 store.dispatch(fetchClass());
 store.dispatch(fetchType());
+store.dispatch(fetchSession());
 
 ReactDOM.render(
   <React.StrictMode>

@@ -35,6 +35,9 @@ const NavBar = () => {
           <NavItem className="nav-item" to="/classestypes">
             Classes Types
           </NavItem>
+          <NavItem className="nav-item" to="/sessions">
+            Sessions
+          </NavItem>
         </>
 
         {user ? (

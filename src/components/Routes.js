@@ -10,6 +10,8 @@ import ClassDetail from "./class/ClassDetail";
 import ClassCreate from "./class/ClassCreate";
 import TypesList from "./types/TypesList";
 import TypesDetail from "./types/TypesDetail";
+import SessionList from "./Session/SessionList";
+import SessionDetail from "./Session/SessionDetail";
 
 const Routes = () => {
   const gym = useSelector((state) => state.gyms.gyms);
@@ -26,9 +28,14 @@ const Routes = () => {
       <Route path="/classestypes/:tSlug">
         <TypesDetail />
       </Route>
-
+      <Route path="/sessions/:sSlug">
+        <SessionDetail />
+      </Route>
       <Route path="/newgym">
         <GymCreate />
+      </Route>
+      <Route path="/sessions">
+        <SessionList />
       </Route>
       <Route path="/classestypes">
         <TypesList classType={classType} />
