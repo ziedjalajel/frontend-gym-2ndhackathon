@@ -6,7 +6,7 @@ import * as actionTypes from "./types";
 export const signUp = (userData, history) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post("http://localhost:8000/signup", userData);
+      const res = await instance.post("/users/signup", userData);
       dispatch(setUser(res.data.token));
       history.push("/");
     } catch (error) {
@@ -21,7 +21,7 @@ export const signUp = (userData, history) => {
 export const signIn = (userData, history) => {
   return async (dispatch) => {
     try {
-      const res = await instance.post("/signin", userData);
+      const res = await instance.post("/users/signin", userData);
       // console.log("res", decode(res.data.token));
       dispatch(setUser(res.data.token));
       history.push("/");

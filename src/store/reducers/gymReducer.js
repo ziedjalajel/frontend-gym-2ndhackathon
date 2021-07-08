@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/types";
 const initialState = {
   gyms: [],
   loading: true,
+  // isAdmin: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         gyms: [...state.gyms, newGym],
+        // isAdmin: true,
       };
 
     case actionTypes.FETCH_GYMS:
