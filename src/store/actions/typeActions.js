@@ -4,7 +4,7 @@ import instance from "./instance";
 export const addType = (newType) => {
   return async (dispatch) => {
     try {
-      const res = await instance.post("/classestypes");
+      const res = await instance.post("/classestypes", newType);
       dispatch({
         type: actionTypes.ADD_TYPE,
         payload: { newType: res.data },

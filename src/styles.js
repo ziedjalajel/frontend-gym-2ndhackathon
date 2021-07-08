@@ -44,6 +44,8 @@ export const DetailWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+  flex-direction: "row";
+  flex-wrap: "wrap";
 
   img {
     width: 40%;
@@ -74,7 +76,7 @@ export const SignupButton = styled(Link)`
 
 export const Logo = styled(Link)`
   img {
-    width: 8rem;
+    width: 4rem;
   }
 `;
 
@@ -113,7 +115,7 @@ export const ThemeButton = styled.button`
   color: gray;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.div`
   text-align: center;
 `;
 

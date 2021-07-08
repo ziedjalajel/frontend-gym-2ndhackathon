@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import SearchBar from "../SearchBar";
+import { ListWrapper } from "../../styles";
 
 const ClassList = (props) => {
   const [query, setQuery] = useState("");
@@ -16,7 +17,7 @@ const ClassList = (props) => {
   return (
     <>
       <SearchBar setQuery={setQuery} />
-      <div className="container">{gymClassList}</div>
+      <ListWrapper className="row">{gymClassList}</ListWrapper>
     </>
   );
 };

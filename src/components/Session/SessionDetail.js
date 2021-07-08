@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
+import { DetailWrapper } from "../../styles";
 
 const SessionDetail = () => {
   const { sessionSlug } = useParams();
@@ -8,13 +9,13 @@ const SessionDetail = () => {
   );
   if (!session) return <Redirect to="sessions" />;
   return (
-    <div className="container">
+    <DetailWrapper>
       <div className="row">
         <h2>{session.name}</h2>
         <p>{session.capacity}</p>
         <p>{session.time}</p>
       </div>
-    </div>
+    </DetailWrapper>
   );
 };
 export default SessionDetail;

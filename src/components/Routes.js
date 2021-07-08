@@ -12,15 +12,26 @@ import TypesList from "./types/TypesList";
 import TypesDetail from "./types/TypesDetail";
 import SessionList from "./Session/SessionList";
 import SessionDetail from "./Session/SessionDetail";
+import SessionCreate from "./Session/SessionCreate";
+import TypeCreate from "./types/TypeCreate";
+import Home from "./Home";
 
 const Routes = () => {
   const gym = useSelector((state) => state.gyms.gyms);
   const classes = useSelector((state) => state.classes.classes);
   const classType = useSelector((state) => state.types.types);
+  const sessions = useSelector((state) => state.sessions.sessions);
+  // TypeCreate
   return (
     <Switch>
       <Route path="/classestypes/:tSlug/classes/new">
         <ClassCreate />
+      </Route>
+      <Route path="/users/:sSlug/sessions/new">
+        <SessionCreate />
+      </Route>
+      <Route path="/classestypes/new">
+        <TypeCreate />
       </Route>
       <Route path="/classes/:cSlug">
         <ClassDetail />
@@ -35,7 +46,7 @@ const Routes = () => {
         <GymCreate />
       </Route>
       <Route path="/sessions">
-        <SessionList />
+        <SessionList sessions={sessions} />
       </Route>
       <Route path="/classestypes">
         <TypesList classType={classType} />
@@ -51,6 +62,9 @@ const Routes = () => {
       </Route>
       <Route path="/signup">
         <Signup />
+      </Route>
+      <Route path="/">
+        <Home />
       </Route>
     </Switch>
   );

@@ -43,7 +43,13 @@ const NavBar = () => {
         {user ? (
           <NavItem className="nav-item" to="/">
             <h5>Hello {user.username}</h5>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={handleSignOut}
+            >
+              Sign Out
+            </button>
           </NavItem>
         ) : (
           <>

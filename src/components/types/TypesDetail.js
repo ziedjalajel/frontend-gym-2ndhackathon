@@ -3,6 +3,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { getClassById } from "../../store/utils";
 import { Link } from "react-router-dom";
 import ClassList from "../class/ClassList";
+import { DetailWrapper } from "../../styles";
 
 //const shops = useSelector((state) => state.shops.shops);
 
@@ -41,18 +42,20 @@ const TypesDetail = () => {
   let listOfClasses = allClasses.filter((c) => c.classTypeId === classType.id);
 
   return (
-    <div className="container">
-      <div className="row">
-        <h2>{classType.name}</h2>
-        {user && (user.isAdmin || user.userId == 1) ? (
-          <Link to={`/classestypes/${classType.id}/classes/new`}>
-            <button>Create Class</button>
-          </Link>
-        ) : (
-          <></>
-        )}
+    <div className="row">
+      <div className="container">
+        <DetailWrapper className="col-12">
+          <h2>{classType.name}</h2>
+          {user && (user.isAdmin || user.userId == 1) ? (
+            <Link to={`/classestypes/${classType.id}/classes/new`}>
+              <button className="btn btn-outline-info">Create Class</button>
+            </Link>
+          ) : (
+            <></>
+          )}
+        </DetailWrapper>
       </div>
-      <div className="row">
+      <div className="col-12">
         <ClassList classes={listOfClasses} />
       </div>
     </div>
